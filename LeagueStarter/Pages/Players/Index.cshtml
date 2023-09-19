@@ -5,7 +5,6 @@
 
 <!-- To-Do list -->
 <!-- 
-    each row link to player details
     color change on hover
     gold background if on favorite team
     team and position dropdowns
@@ -13,3 +12,44 @@
     dropdown for sorting by 3 columns
     bold text for starters (depth = 1)
 -->
+<div class="jumbotron">
+    <h1 class="display-4">Players</h1>
+    <p class="lead">This is a list of all players in the league.</p>
+    <hr class="my-4">
+    <p>Click on a player to see more details.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/Players/Create" role="button">Add Player</a>
+    </p>
+</div>
+
+<!-- Player Table -->
+<div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Team</th>
+                <th scope="col">Position</th>
+                <th scope="col">Depth</th>
+                <th scope="col">Age</th>
+                <th scope="col">Height</th>
+                <th scope="col">Weight</th>
+                <th scope="col">College</th>
+                <th scope="col">Years Pro</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model.Players)
+            {
+                <tr>
+                    <td>@player.Name</td>
+                    <td>@player.Team</td>
+                    <td>@player.Position</td>
+                    <td>@player.Depth</td>
+                    <td>@player.Age</td>
+                    <td>@player.Height</td>
+                    <td>@player.Weight</td>
+                    <td>@player.College</td>
+                    <td>@player.Experience</td>
+                </tr>            
+            }

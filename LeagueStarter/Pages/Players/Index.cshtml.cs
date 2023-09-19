@@ -29,10 +29,7 @@ namespace League.Pages.Players
 
         //Create SelectLists for the filter dropdowns
 
-        [BindProperty(SupportsGet = true)]
         public SelectList Teams { get; set; }
-
-        [BindProperty(SupportsGet = true)]
         public SelectList Positions { get; set; }
 
         //Create variables for the filter dropdowns
