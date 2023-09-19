@@ -16,9 +16,8 @@ namespace League.Pages.Players
             _context = context;
         }
 
-        //Inject related Lists (tables)
+        //Create a list of players
         public List<Player> Players { get; set; }
-        public List<Team> Teams { get; set; }
 
         //Linq Query: sort players by position
         public List<Player> GetPlayersPosition(string Position)
