@@ -49,13 +49,19 @@ namespace League.Pages.Players
 
         public string FavoriteTeam { get; set; }
 
+
         public void OnGet()
         {
             //Create a base query that retrieves all players
 
             var players = from p in _context.Players
-                          select p;
+                        select p;
 
+            IQueryable<string> positionsQuery = from p in _context.Players
+                                                orderby p.Position
+                                                select p.Position;
+
+            Positions = new SelectList(positionsQuery.Distinct().ToList());
             //Modify the query if the user is searching
 
             if (!string.IsNullOrEmpty(SearchString))
@@ -101,7 +107,7 @@ namespace League.Pages.Players
             //Create the select lists for the filter dropdowns
 
             Teams = new SelectList(_context.Teams.Distinct().OrderBy(t => t), SelectedTeam);
-            Positions = new SelectList(_context.Players.Distinct().OrderBy(p => p.Position), SelectedPosition);
+            //Positions = new SelectList(_context.Players.Distinct().OrderBy(p => p.Position), SelectedPosition);
 
             //Read the favorite team cookie into this member variable
 

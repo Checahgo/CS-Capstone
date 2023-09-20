@@ -8,7 +8,6 @@
     color change on hover
     gold background if on favorite team
     team and position dropdowns
-    searchbox for name search
     dropdown for sorting by 3 columns
     bold text for starters (depth = 1)
 -->
@@ -20,6 +19,18 @@
     <p class="lead">
         <a class="btn btn-primary btn-lg" href="/Players/Create" role="button">Add Player</a>
     </p>
+    <form>
+       <input type="text" id="search" placeholder="Search for a player..." asp-for="SearchString" onchange="this.form.submit();">
+       <select class="form-control" asp-for="SortField" onchange="this.form.submit();">
+        <option value="Name">Name</option>
+        <option value="Team">Team</option>
+        <option value="Position">Position</option>
+        </select>
+        <select class="form-control" asp-for="SelectedPosition" asp-items="Model.Positions" onchange="this.form.submit();">
+            <option value="">None</option>
+        </select>
+    </form>
+    
 </div>
 
 <!-- Player Table -->
@@ -43,7 +54,7 @@
             {
                 <tr>
                     <td>@player.Name</td>
-                    <td>@player.Team</td>
+                    <td>@player.TeamId</td>
                     <td>@player.Position</td>
                     <td>@player.Depth</td>
                     <td>@player.Age</td>
