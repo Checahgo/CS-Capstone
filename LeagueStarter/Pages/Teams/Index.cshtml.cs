@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using League.Data;
 using League.Models;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+//using Newtonsoft.Json;
 
 namespace League.Pages.Teams
 {
@@ -40,6 +42,7 @@ namespace League.Pages.Teams
             Conferences = await _context.Conferences.ToListAsync();
             Divisions = await _context.Divisions.ToListAsync();
             Teams = await _context.Teams.ToListAsync();
+            
             //Query for dropdown list
             IQueryable<string> teamQuery = from t in _context.Teams
                                            orderby t.TeamId
@@ -69,4 +72,11 @@ namespace League.Pages.Teams
             return Teams.Where(t => t.DivisionId.Equals(DivisionId)).OrderByDescending(t => t.Win).ToList();
         }
     }
+
+    /*(public class RealTimeData
+    {
+        public string Data { get; set; }
+        RealTimeData realTimeData = JsonConverter.DeserializeObject<RealTimeData>(Data);
+
+    }*/
 }

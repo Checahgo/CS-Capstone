@@ -161,3 +161,4 @@ D:\League-Starter\LeagueStarter\obj\Debug\netcoreapp3.1\Razor\Pages\Players\Inde
 D:\League-Starter\LeagueStarter\obj\Debug\netcoreapp3.1\Razor\Pages\Players\Player.cshtml.g.cs
 D:\League-Starter\LeagueStarter\obj\Debug\netcoreapp3.1\Razor\Pages\Teams\Index.cshtml.g.cs
 D:\League-Starter\LeagueStarter\obj\Debug\netcoreapp3.1\Razor\Pages\Teams\Team.cshtml.g.cs
+D:\League-Starter\LeagueStarter\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
